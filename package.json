@@ -1,0 +1,20 @@
+{
+  "name": "muftu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lvm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LVMuftu/Muftu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LVMuftu/Muftu/issues"
+  },
+  "homepage": "https://github.com/LVMuftu/Muftu#readme"
+}
