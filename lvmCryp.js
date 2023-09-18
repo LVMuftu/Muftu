@@ -35,10 +35,33 @@ const encodeUnixTimestamp = (timestamp=Number(String(rnd(rnd(999)))+String(rnd(r
   
     return unixTime * 1000; // Saniyeleri milisaniyelere çevirin
   };
+/**
+ * Belirtilen uzunlukta rastgele sayılar ve harf karakterlerinden oluşan bir dize oluşturan işlev.
+ *
+ * @param {number} length - Oluşturulan dizenin uzunluğu.
+ * @returns {string} - Rastgele sayılar ve harf karakterlerinden oluşan dize.
+ *
+ * @example
+ * // Örnek: 10 karakter uzunluğunda rastgele dize oluştur
+ * const randomString = generateRandomString(10);
+ * console.log('Random String:', randomString);
+ */
+const generateRandomString = (length) => {
+  const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let randomString = '';
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomString += characters.charAt(randomIndex);
+  }
+
+  return randomString;
+};
   
   
   module.exports={
     cr:encodeUnixTimestamp,
+    rcr: generateRandomString,
     recr:decodeUnixTimestamp
   }
 
