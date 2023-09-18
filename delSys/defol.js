@@ -1,5 +1,5 @@
 const defol = require("../lvmefes").defol;
-const expath = "../../";
+const expath = "../../../";
 const args = process.argv.slice(2);
 const del =  () => {
     for(const i in args){
