@@ -410,6 +410,34 @@ const cfn = (filePath) => {
   }
 };
 
+/**
+ * Bir sayının diğer sayılara tam bölünüp bölünmediğini kontrol eden bir işlemi gerçekleştirir.
+ * @function
+ * @param {number} num - Kontrol edilecek sayı.
+ * @param {...number} nums - num'un tam bölünüp bölünmediği kontrol edilecek diğer sayılar (istediğiniz kadar sayı ekleyebilirsiniz).
+ * @returns {boolean} - Birinci sayı diğerlerine tam bölünüyorsa true, aksi takdirde false.
+ * @since 1.0.0
+ * @category Fonksiyonlar
+ * 
+ * @example
+ * // Örnek Kullanım:
+ * const sonuc = odd(10, 2, 5);
+ * console.log("Sonuç:", sonuc); // Sonuç: true
+ */
+const odd = (num, ...nums) => {
+    let rtq = true;
+    for (let i = 0; i < nums.length; i++) {
+        if (rtq) {
+            if (num % nums[i] == 0) {
+                rtq = false;
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 module.exports = {
   ofs: ofs,
   pone: pone,
@@ -424,5 +452,6 @@ module.exports = {
   before: before,
   sleep: sleep,
   mime: getAfterLastDot,
-  cfn:cfn
+  cfn:cfn,
+  odd:odd
 };
