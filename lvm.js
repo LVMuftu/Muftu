@@ -343,7 +343,14 @@ const restr = (str, b, f, step = 1) => {
  *
  * main();
  */
-const sleep = (ms = 1000) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms = 1000) => new Promise((resolve) => {
+  if (ms <= 100) {
+    setTimeout(resolve, ms * 1000);
+  } else {
+    setTimeout(resolve, ms);
+  }
+});
+
 
 /**
  * Belirli bir sayıda işlem sonrasında bir işlevi çağırır.
