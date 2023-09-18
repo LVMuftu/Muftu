@@ -138,7 +138,6 @@ const pone = (num1, num2) => {
   return !(num1 < 0 && num2 > 0) || (num1 > 0 && num2 < 0);
 };
 
-
 /**
  * Belirli bir aralıkta rastgele bir tamsayı üretir.
  * @param {number} max - Üretilen türün en büyük değeri (dahil değil).
@@ -146,7 +145,7 @@ const pone = (num1, num2) => {
  * @returns {number} - Üretilen rastgele tür.
  * @since 1.0.0
  * @category Functions
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * const randomType = rnd(10, 5);
@@ -157,7 +156,6 @@ const rnd = (max, min = 0) => {
   const otr = Math.floor(Math.random() * (max - min));
   return otr + alt;
 };
-
 
 /**
  * İki daire arasındaki çakışmayı kontrol eder veya iki daire arasındaki hipotenüs uzunluğunu döndürür.
@@ -171,12 +169,12 @@ const rnd = (max, min = 0) => {
  * @returns {boolean|object} - Eğer m false ise, iki dairenin çakışıp çakışmadığını belirtir (true/false). Eğer m true ise, bir nesne döndürür: { hp: hipotenüs uzunluğu, dx: x koordinat farkı, dy: y koordinat farkı }.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * Örnek Kullanım:
  * const collision = hipo(0, 0, 5, 10, 0, 5);
  * console.log(collision); // true
- * 
+ *
  * Hipotenüs ve koordinat farklarını almak için:
  * const result = hipo(0, 0, 5, 10, 0, 5, true);
  * console.log(result); // { hp: 10, dx: -10, dy: 0 }
@@ -199,13 +197,12 @@ const hipo = (x1, y1, r1, x2, y2, r2, m = false) => {
   }
 };
 
-
 /**
  * Konsolu temizler ve verilen log mesajlarını konsola yazar.
  * @param {...any} logs - Konsola yazılacak log mesajları.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * Örnek Kullanım:
  * cls("Bu bir log mesajıdır.", "Başka bir log mesajı.");
@@ -224,7 +221,7 @@ const cls = (...logs) => {
  * @param {...any} logs - Konsola yazılacak log mesajları veya "cls" parametresi.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  *  Örnek Kullanım:
  * cpx("Bu bir log mesajıdır.", "Başka bir log mesajı.", "cls");
@@ -248,7 +245,7 @@ const cpx = (...logs) => {
  * @returns {any} - Rastgele seçilen öğe.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * const myArray = [1, 2, 3, 4, 5];
@@ -267,7 +264,7 @@ const cho = (arr, max = arr.length, min = 0) => {
  * @returns {array} - Seçilen rastgele öğelerin bir dizisi.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * const myArray = [1, 2, 3, 4, 5];
@@ -282,7 +279,6 @@ const acho = (arr, j, max = arr.length, min = 0) => {
   return res;
 };
 
-
 /**
  * Bir metin dizisini belirli bir başlangıç ve bitiş noktasına göre keser ve belirtilen adımda öğeleri alır.
  * @param {string} str - Kesilecek metin dizisi.
@@ -292,13 +288,13 @@ const acho = (arr, j, max = arr.length, min = 0) => {
  * @returns {string|undefined} - Kesilen metin dizisi veya undefined (tanımsız) eğer girdiler geçersizse.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * const metin = "Bu bir örnek metindir.";
  * const kesilmisMetin = restr(metin, 3, 10, 2);
  * console.log(kesilmisMetin); // "birö"
- * 
+ *
  * const metin2 = "JavaScript öğrenmek çok eğlencelidir.";
  * const kesilmisMetin2 = restr(metin2, "e", "ç", 3);
  * console.log(kesilmisMetin2); // "Jva "
@@ -336,7 +332,7 @@ const restr = (str, b, f, step = 1) => {
  * @returns {Promise} - Bekleme süresi sona erdikten sonra çözülen Promise.
  * @since 1.0.1
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * async function main() {
@@ -344,11 +340,10 @@ const restr = (str, b, f, step = 1) => {
  *   await sleep(2000); // 2 saniye beklet
  *   console.log("2 saniye sonra");
  * }
- * 
+ *
  * main();
  */
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
+const sleep = (ms = 1000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  * Belirli bir sayıda işlem sonrasında bir işlevi çağırır.
@@ -357,18 +352,21 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @returns {function} - Yeni işlev, belirli sayıda işlem sonrasında orijinal işlevi çağırır.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * const logAfter3 = after(3, () => {
  *   console.log("3 kez çalıştım!");
  * });
- * 
+ *
  * logAfter3();
  * logAfter3();
  * logAfter3(); // 3 kez çalıştım!
  */
-const after = (n, func) => (...args) => --n < 1 && func(...args);
+const after =
+  (n, func) =>
+  (...args) =>
+    --n < 1 && func(...args);
 /**
  * Belirli bir sayıda işlem öncesinde bir işleve çağrır.
  * @param {number} n - İşlem sayısı, işleve çağrılmadan önce kontrol edilir.
@@ -377,13 +375,13 @@ const after = (n, func) => (...args) => --n < 1 && func(...args);
  * @throws {TypeError} - İşlem işlevi bir işlev değilse bir TypeError fırlatır.
  * @since 1.0.0
  * @category Fonksiyonlar
- * 
+ *
  * @example
  * // Örnek Kullanım:
  * const logBefore3 = before(3, () => {
  *   console.log("3 kez çalıştım!");
  * });
- * 
+ *
  * logBefore3();
  * logBefore3();
  * logBefore3(); // 3 kez çalıştım!
@@ -394,7 +392,23 @@ const before = (n, func) => {
   }
   return (...args) => --n > 0 && func(...args);
 };
-
+const getAfterLastDot = (str) => {
+  const lastDotIndex = str.lastIndexOf(".");
+  if (lastDotIndex === -1) {
+    return ""; // String içinde nokta yoksa boş bir string döndür
+  }
+  return str.slice(lastDotIndex); // Son noktadan sonrasını döndür
+};
+const cfn = (filePath) => {
+  // dosya ismini "." ve "/" işarretlerinden temizler mime "." işareti hariç
+  const regex = /\/?(\w+\.\w+)(\/|$)/;
+  const match = filePath.match(regex);
+  if (match) {
+    return match[1];
+  } else {
+    return null;
+  }
+};
 
 module.exports = {
   ofs: ofs,
@@ -407,7 +421,8 @@ module.exports = {
   acho: acho,
   restr: restr,
   after: after,
-  before,
-  before,
-  
+  before: before,
+  sleep: sleep,
+  mime: getAfterLastDot,
+  cfn:cfn
 };
