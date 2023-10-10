@@ -42,6 +42,9 @@ const getDirectoryContents = (folderPath) => {
       } else if (stats.isDirectory()) {
         directoryContents.folders.push(fileName);
       }
+else{
+throw new Error('Dosya yolu yada klasör yolu ile etkileşime geçilemedi. Linux yada Mac işletim sistemi için "sudo" komutunu kullanın.')
+}
     });
   } catch (error) {
     throw new Error("Dizin okunamıyor.");
